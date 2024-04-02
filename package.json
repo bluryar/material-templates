@@ -1,15 +1,16 @@
 {
   "name": "@bluryar/material-templates",
   "type": "module",
+  "version": "0.1.4",
   "private": true,
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "commit": "git-cz",
     "test": "vitest",
-    "bump:major": "pnpm run bump:major -r && npx bumpp major --all --yes",
-    "bump:minor": "pnpm run bump:minor -r && npx bumpp minor --all --yes",
-    "bump:patch": "pnpm run bump:patch -r && npx bumpp patch --all --yes"
+    "bump:major": "pnpm run -r bump:major && npx bumpp major --all --yes",
+    "bump:minor": "pnpm run -r bump:minor && npx bumpp minor --all --yes",
+    "bump:patch": "pnpm run -r bump:patch && npx bumpp patch --all --yes"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.11.6",
@@ -40,6 +41,5 @@
     "*.{js,ts,mjs,cjs,mts,cts,md,html,yaml,yml}": [
       "eslint --fix"
     ]
-  },
-  "version": "0.1.4"
+  }
 }
