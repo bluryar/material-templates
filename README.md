@@ -1,17 +1,5 @@
 # AppWorks 物料模板仓库
 
-## 开发
-
-**注意**：这是一个带有git submodules的项目，所以，你需要在第一次拉取代码时，使用 `--recurse-submodules` 参数来拉取子模块。
-```bash
-
-# 第一次拉取代码
-git clone --recurse-submodules <your-repository-url>
-
-# 或者你已经clone仓库来，但是没有拉取子模块，使用这个命令
-git submodule update --init --recursive
-```
-
 ## 介绍
 
 这是一个关于 [AppWorks](https://appworks.site/) 的的前端物料模板仓库，有关 AppWorks 的物料仓库的主流程可以用下图来描述，而我们这个仓库就是途中橙色箭头所处的位置。
