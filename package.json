@@ -1,33 +1,40 @@
 {
+  "name": "@bluryar/material-templates",
+  "type": "module",
   "private": true,
-  "name": "material-templates",
   "scripts": {
-    "eslint": "eslint --cache --ext .js,.jsx,.ts,.tsx ./",
-    "eslint-fix": "npm run lint -- --fix",
-    "lint": "npm run eslint && npm run stylelint",
-    "stylelint": "stylelint ./**/*.{css,scss} ",
-    "ci": "npm run lint",
-    "prettier": "prettier **/* --write",
-    "publish": "ts-node ./scripts/publish.ts"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "commit": "git-cz"
   },
   "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@iceworks/spec": "^1.0.0",
-    "@types/node": "^14.14.6",
-    "axios": "^0.19.2",
-    "eslint": "^8.40.0",
-    "fs-extra": "^10.0.0",
-    "husky": "^4.3.0",
-    "ice-npm-utils": "^2.1.2",
-    "prettier": "^2.1.2",
-    "stylelint": "^13.7.2",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.7.3"
+    "@antfu/eslint-config": "^2.11.6",
+    "@antfu/ni": "^0.21.12",
+    "@commitlint/cli": "^19.2.1",
+    "@commitlint/config-conventional": "^19.1.0",
+    "@types/node": "^v18.19.1",
+    "bumpp": "^9.4.0",
+    "commitizen": "^4.3.0",
+    "cz-git": "^1.9.1",
+    "eslint": "^8.57.0",
+    "lint-staged": "^15.2.2",
+    "simple-git-hooks": "^2.11.1",
+    "tsx": "^4.7.1",
+    "typescript": "^5.4.3",
+    "vitest": "^1.4.0"
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "npm run lint"
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
     }
+  },
+  "simple-git-hooks": {
+    "commit-msg": "npx --no -- commitlint --edit $1",
+    "pre-push": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,ts,mjs,cjs,mts,cts,md,html,yaml,yml}": [
+      "eslint --fix"
+    ]
   }
 }

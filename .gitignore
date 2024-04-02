@@ -23,3 +23,5 @@ packages/*/template/component/pnpm-lock.yaml
 packages/*/template/**/esm
 packages/*/template/**/es2017
 packages/*/template/component/.docusaurus
+
+packages/*/template/*/node_modules
