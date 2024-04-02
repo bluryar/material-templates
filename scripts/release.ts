@@ -39,6 +39,8 @@ function checkGitCommitted() {
 async function publish(dir: string, command: string) {
   console.log(`🚀 Publishing ${dir}`)
 
+  console.log(`⚡ Executing ${command}`)
+
   execSync(command, {
     cwd: dir,
   })
