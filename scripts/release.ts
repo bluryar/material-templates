@@ -41,7 +41,6 @@ async function publish(dir: string, command: string) {
 
   execSync(command, {
     cwd: dir,
-    stdio: 'inherit',
   })
 
   console.log(`✅ ${dir} published`)
