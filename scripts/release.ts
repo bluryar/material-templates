@@ -19,7 +19,7 @@ async function main() {
   }
 
   const pkgDirs = await fg(r(`../packages/${PKG_GLOB}`), { onlyDirectories: true })
-  const command = `npm publish --registry ${MATERIALS_NPM_REGISTRY}`
+  const command = `npm publish --registry ${MATERIALS_NPM_REGISTRY} --ignore-scripts`
 
   checkGitCommitted()
 
