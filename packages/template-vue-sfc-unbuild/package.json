@@ -8,9 +8,9 @@
     "template"
   ],
   "scripts": {
-    "bump:major": "npx bumpp major --all --yes",
-    "bump:minor": "npx bumpp minor --all --yes",
-    "bump:patch": "npx bumpp patch --all --yes"
+    "bump:major": "npx bumpp major --no-commit --no-tag --no-push --yes",
+    "bump:minor": "npx bumpp minor --no-commit --no-tag --no-push --yes",
+    "bump:patch": "npx bumpp patch --no-commit --no-tag --no-push --yes"
   },
   "materialConfig": {
     "type": "vue"
