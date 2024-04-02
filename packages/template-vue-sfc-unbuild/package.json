@@ -1,6 +1,6 @@
 {
   "name": "@bluryar/template-vue-sfc-unbuild",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "files": [
     "!template/*/README.md",
     "!template/*/node_modules",
