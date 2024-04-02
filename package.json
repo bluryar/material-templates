@@ -5,7 +5,8 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "test": "vitest"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.11.6",
