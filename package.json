@@ -6,7 +6,10 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "commit": "git-cz",
-    "test": "vitest"
+    "test": "vitest",
+    "bump:major": "pnpm run bump:major -r && npx bumpp major --all --yes",
+    "bump:minor": "pnpm run bump:minor -r && npx bumpp minor --all --yes",
+    "bump:patch": "pnpm run bump:patch -r && npx bumpp patch --all --yes"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.11.6",

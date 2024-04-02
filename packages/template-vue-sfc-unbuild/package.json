@@ -7,6 +7,11 @@
     "!template/*/package.json",
     "template"
   ],
+  "scripts": {
+    "bump:major": "npx bumpp major --all --yes",
+    "bump:minor": "npx bumpp minor --all --yes",
+    "bump:patch": "npx bumpp patch --all --yes"
+  },
   "materialConfig": {
     "type": "vue"
   }

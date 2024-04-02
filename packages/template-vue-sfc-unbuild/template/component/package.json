@@ -1,0 +1,95 @@
+{
+  "name": "my-library",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@8.15.1",
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": "",
+  "keywords": [],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./components": {
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.mjs",
+      "require": "./dist/components/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "*",
+        "dist/*",
+        "dist/*.d.ts",
+        "dist/*/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "components.d.ts",
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "vite serve dev",
+    "dev:build": "vite build dev",
+    "dev:preview": "vite preview dev",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "vitest",
+    "bump:patch": "npx bumpp patch --all --yes",
+    "bump:minor": "npx bumpp minor --all --yes",
+    "bump:major": "npx bumpp major --all --yes",
+    "prepublishOnly": "pnpm build",
+    "prepare": "husky"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.11.6",
+    "@commitlint/cli": "^19.2.1",
+    "@commitlint/config-conventional": "^19.1.0",
+    "@types/node": "^20.11.16",
+    "@vitejs/plugin-vue": "^5.0.3",
+    "@vue/test-utils": "^2.4.5",
+    "@vue/tsconfig": "^0.5.1",
+    "bumpp": "^9.4.0",
+    "commitizen": "^4.3.0",
+    "cz-git": "^1.9.1",
+    "eslint": "^8.57.0",
+    "happy-dom": "^14.3.10",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "mkdist": "^1.4.0",
+    "typescript": "^5.3.3",
+    "unbuild": "2.0.0",
+    "vite": "^5.0.12",
+    "vitest": "^1.4.0",
+    "vue": "^3.4.15"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,mjs,cjs,mts,cts,md,html,yaml,yml}": [
+      "eslint --fix"
+    ]
+  }
+}
