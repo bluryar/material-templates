@@ -1,3 +1,0 @@
-[submodule "packages/template-vue-sfc-unbuild/template/component"]
-	path = packages/template-vue-sfc-unbuild/template/component
-	url = https://github.com/bluryar/vue-sfc-unbuild.git
