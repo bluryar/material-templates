@@ -10,7 +10,8 @@
     "test": "vitest",
     "bump:major": "pnpm run -r bump:major && npx bumpp major --all --yes",
     "bump:minor": "pnpm run -r bump:minor && npx bumpp minor --all --yes",
-    "bump:patch": "pnpm run -r bump:patch && npx bumpp patch --all --yes"
+    "bump:patch": "pnpm run -r bump:patch && npx bumpp patch --all --yes",
+    "release": "tsx ./scripts/release.ts"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.11.6",
@@ -21,7 +22,9 @@
     "bumpp": "^9.4.0",
     "commitizen": "^4.3.0",
     "cz-git": "^1.9.1",
+    "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
+    "fast-glob": "^3.3.2",
     "lint-staged": "^15.2.2",
     "simple-git-hooks": "^2.11.1",
     "tsx": "^4.7.1",

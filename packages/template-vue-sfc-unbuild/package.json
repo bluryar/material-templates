@@ -5,6 +5,7 @@
     "!template/*/README.md",
     "!template/*/node_modules",
     "!template/*/package.json",
+    "!template/*/pnpm-workspace.yaml",
     "template"
   ],
   "scripts": {
