@@ -1,0 +1,31 @@
+{
+  "name": "@bluryar/template-vue-3",
+  "version": "0.3.9",
+  "author": {
+    "name": "bluryar",
+    "email": "bluryarl@gmail.com"
+  },
+  "files": [
+    "!template/block/README.md",
+    "!template/block/node_modules",
+    "!template/block/package.json",
+    "!template/block/pnpm-workspace.yaml",
+    "!template/component/README.md",
+    "!template/component/node_modules",
+    "!template/component/package.json",
+    "!template/component/pnpm-workspace.yaml",
+    "!template/scaffold/README.md",
+    "!template/scaffold/node_modules",
+    "!template/scaffold/package.json",
+    "!template/scaffold/pnpm-workspace.yaml",
+    "template"
+  ],
+  "scripts": {
+    "bump:major": "npx bumpp major --no-commit --no-tag --no-push --yes",
+    "bump:minor": "npx bumpp minor --no-commit --no-tag --no-push --yes",
+    "bump:patch": "npx bumpp patch --no-commit --no-tag --no-push --yes"
+  },
+  "materialConfig": {
+    "type": "vue"
+  }
+}

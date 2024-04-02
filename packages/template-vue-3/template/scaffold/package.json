@@ -1,0 +1,78 @@
+{
+  "name": "component",
+  "type": "module",
+  "version": "2.0.0",
+  "private": true,
+
+  "files": [
+    ".vscode",
+    "public",
+    "src",
+    "test",
+    ".gitignore",
+    "commitlint.config.cjs",
+    "eslint.config.mjs",
+    "index.html",
+    "package.json",
+    "pnpm-lock.yaml",
+    "README.md",
+    "tsconfig.json",
+    "tsconfig.node.json",
+    "vite.config.ts",
+    "vitest.config.ts"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "commit": "git-cz",
+    "test": "vitest",
+    "bump:major": "npx bumpp major --no-commit --no-tag --no-push --yes",
+    "bump:minor": "npx bumpp minor --no-commit --no-tag --no-push --yes",
+    "bump:patch": "npx bumpp patch --no-commit --no-tag --no-push --yes",
+    "postinstall": "npx simple-git-hooks",
+    "prepublishOnly": "pnpm run build"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "dependencies": {
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.11.6",
+    "@commitlint/cli": "^19.2.1",
+    "@commitlint/config-conventional": "^19.1.0",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "@vue/test-utils": "^2.4.5",
+    "commitizen": "^4.3.0",
+    "cz-git": "^1.9.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-format": "^0.1.0",
+    "happy-dom": "^14.7.1",
+    "lint-staged": "^15.2.2",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vite-plugin-dts": "^3.8.1",
+    "vitest": "^1.4.0",
+    "vue-tsc": "^2.0.6"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  },
+  "simple-git-hooks": {
+    "commit-msg": "npx --no -- commitlint --edit $1",
+    "pre-push": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,ts,mjs,cjs,mts,cts,md,html,yaml,yml}": [
+      "eslint --fix"
+    ]
+  }
+}

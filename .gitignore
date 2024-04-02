@@ -10,6 +10,7 @@ yarn-error.log
 tempDir
 coverage/
 .ice/
+*.local
 
 .eslintcache
 build
@@ -18,10 +19,10 @@ npmrc
 .history
 
 # 本地调试
-packages/*/template/scaffold/package.json
-packages/*/template/component/pnpm-lock.yaml
-packages/*/template/**/esm
-packages/*/template/**/es2017
-packages/*/template/component/.docusaurus
+# packages/*/template/component/package.json
+packages/*/template/component/dist
 
 packages/*/template/*/node_modules
+
+*storybook.log
+storybook-static

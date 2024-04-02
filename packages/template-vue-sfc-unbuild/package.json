@@ -1,13 +1,22 @@
 {
   "name": "@bluryar/template-vue-sfc-unbuild",
-  "version": "0.1.0",
+  "version": "0.3.9",
+  "author": {
+    "name": "bluryar",
+    "email": "bluryarl@gmail.com"
+  },
   "files": [
-    "!template/*/.gitignore",
-    "!template/*/README.md",
-    "!template/*/node_modules",
-    "!template/*/package.json",
+    "!template/component/README.md",
+    "!template/component/node_modules",
+    "!template/component/package.json",
+    "!template/component/pnpm-workspace.yaml",
     "template"
   ],
+  "scripts": {
+    "bump:major": "npx bumpp major --no-commit --no-tag --no-push --yes",
+    "bump:minor": "npx bumpp minor --no-commit --no-tag --no-push --yes",
+    "bump:patch": "npx bumpp patch --no-commit --no-tag --no-push --yes"
+  },
   "materialConfig": {
     "type": "vue"
   }

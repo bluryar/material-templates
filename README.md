@@ -1,20 +1,30 @@
 # AppWorks 物料模板仓库
 
-## 开发
-
-**注意**：这是一个带有git submodules的项目，所以，你需要在第一次拉取代码时，使用 `--recurse-submodules` 参数来拉取子模块。
-```bash
-
-# 第一次拉取代码
-git clone --recurse-submodules <your-repository-url>
-
-# 或者你已经clone仓库来，但是没有拉取子模块，使用这个命令
-git submodule update --init --recursive
-```
-
 ## 介绍
 
 这是一个关于 [AppWorks](https://appworks.site/) 的的前端物料模板仓库，有关 AppWorks 的物料仓库的主流程可以用下图来描述，而我们这个仓库就是途中橙色箭头所处的位置。
+
+## 开始使用
+
+1. 设置 AppWorks 使用的 `registry`
+
+```bash
+appworks config set registry http://192.168.224.84:4873
+```
+
+2. 初始化一个物料仓库，在命令行中进行交互式的信息填写
+
+```bash
+mkdir my-materials && cd my-materials
+
+appworks init material @bluryar/template-vue-3
+# 或者使用其他模板
+appworks init material <Template>
+```
+
+3. 开发物料，然后发布物料，然后发布物料元数据
+
+4. 注意：由于appworks原版的物料仓库使用了飞冰自己的Infra，所以，你可以自己这个工程进行改造，比如剔除他们的eslint规则，改用 antfu 的。
 
 <br>
 
@@ -23,7 +33,44 @@ git submodule update --init --recursive
 <br>
 
 这个仓库与 [原仓库](https://github.com/ice-lab/material-templates) 有何不同？
+
 - 由于我是一个Vue开发者，所以我希望使用Vue这边的技术栈来开发物料模板，同时，我希望使用 pnpm + bumpp 来实现统一的发版。
+
+## 发布
+
+❗确保你已经设置了环境变量
+
+```INI
+MATERIALS_NPM_REGISTRY=http://127.0.0.1:4873
+```
+
+然后：
+
+```bash
+pnpm run bump:<patch|minor|major>
+
+pnpm run release
+```
+
+## 添加模板
+
+1. 在你的项目根目录添加一个 `.env.local` 文件指明你的 npm 私服，比如：
+
+```INI
+MATERIALS_NPM_REGISTRY=http://127.0.0.1:4873
+```
+
+2. 参考 [物料模板](#物料模板) 和 packages 目录下已有的模板，添加自己的模板代码
+
+3. 遵循 AppWorks 的约定，添加一个 `package.json.ejs` 和 `README.md.ejs` 文件，用于生成物料的 `package.json` 和 `README.md` 文件。
+
+4. 模板项目本身你可以使用 `package.json` 作为调试，但请记住在物料模板的 `package.json` 中的 `files` 将它排除。
+
+5. 确保你的模板遵循 [打包 JavaScript 库的现代化指南](https://github.com/frehner/modern-guide-to-packaging-js-library/blob/main/README-zh_CN.md).
+
+6. 提供截图，你可以用 [飞冰写的puppeteer脚本](https://www.npmjs.com/package/@ice/screenshot) 来自动截图， 也可以自己截图后将截图放在模板代码的根目录下，或者通过 `componentConfig` \ `blockConfig` \ `scaffoldConfig` 的 `screenshot` 来手动指定。
+
+- [参考Github代码](https://github.com/apptools-lab/AppWorks/blob/master/packages/cli/src/command/generate/generateMaterialData.ts#L33-L38)
 
 ## 物料模板
 
@@ -80,4 +127,4 @@ git submodule update --init --recursive
 
 ##### 物料模板调试
 
-1. 假如物料模板本身使用pnpm管理依赖，那么，你可以在物料模板的根目录下执行 `pnpm install --ignore-workspace` 来安装依赖。
+1. 假如物料模板本身使用pnpm管理依赖，那么，你可以在物料模板的根目录下执行 `pnpm install --ignore-workspace` 来安装依赖。或者新增一个 `pnpm-workspace.yaml`
