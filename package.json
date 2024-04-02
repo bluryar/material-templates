@@ -40,5 +40,6 @@
     "*.{js,ts,mjs,cjs,mts,cts,md,html,yaml,yml}": [
       "eslint --fix"
     ]
-  }
+  },
+  "version": "0.1.1"
 }
