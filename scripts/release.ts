@@ -1,7 +1,7 @@
 import { env, exit } from 'node:process'
 import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { execSync } from 'node:child_process'
+import { exec, execSync } from 'node:child_process'
 import dotenv from 'dotenv'
 import fg from 'fast-glob'
 
@@ -25,6 +25,8 @@ async function main() {
 
   for (const dir of pkgDirs)
     await publish(dir, command)
+
+  exit(0)
 }
 
 // 检查当前仓库的代码是否都已经commit来保证发布的代码是最新的
