@@ -13,6 +13,25 @@
 这个仓库与 [原仓库](https://github.com/ice-lab/material-templates) 有何不同？
 - 由于我是一个Vue开发者，所以我希望使用Vue这边的技术栈来开发物料模板，同时，我希望使用 pnpm + bumpp 来实现统一的发版。
 
+## 添加模板
+
+1. 在你的项目根目录添加一个 `.env.local` 文件指明你的 npm 私服，比如：
+
+```INI
+MATERIALS_NPM_REGISTRY=http://127.0.0.1:4873
+```
+
+2. 参考 [物料模板](#物料模板) 和 packages 目录下已有的模板，添加自己的模板代码
+
+3. 遵循 AppWorks 的约定，添加一个 `package.json.ejs` 和 `README.md.ejs` 文件，用于生成物料的 `package.json` 和 `README.md` 文件。
+
+4. 模板项目本身你可以使用 `package.json` 作为调试，但请记住在物料模板的 `package.json` 中的 `files` 将它排除。
+
+5. 确保你的模板遵循 [打包 JavaScript 库的现代化指南](https://github.com/frehner/modern-guide-to-packaging-js-library/blob/main/README-zh_CN.md).
+
+6. 提供截图，你可以用 `[飞冰写的puppeteer脚本]` 来自动截图， 也可以自己截图后将截图放在模板代码的根目录下，或者通过 `componentConfig` \ `blockConfig` \ `scaffoldConfig` 的 `screenshot` 来手动指定。
+  - [参考Github代码](https://github.com/apptools-lab/AppWorks/blob/master/packages/cli/src/command/generate/generateMaterialData.ts#L33-L38)
+
 ## 物料模板
 
 在 AppWorks 的体系中，物料并不是一定要严格按照物料模板的格式进行开发的，但是，假如你需要开发多个物料，并且物料会有多个开发者共同维护，此时，将物料进行一定的规范可以减少重复劳动。
@@ -68,4 +87,4 @@
 
 ##### 物料模板调试
 
-1. 假如物料模板本身使用pnpm管理依赖，那么，你可以在物料模板的根目录下执行 `pnpm install --ignore-workspace` 来安装依赖。
+1. 假如物料模板本身使用pnpm管理依赖，那么，你可以在物料模板的根目录下执行 `pnpm install --ignore-workspace` 来安装依赖。或者新增一个 `pnpm-workspace.yaml`
