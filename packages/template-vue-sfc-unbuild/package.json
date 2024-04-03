@@ -1,6 +1,10 @@
 {
   "name": "@bluryar/template-vue-sfc-unbuild",
   "version": "0.1.5",
+  "author": {
+    "name": "bluryar",
+    "email": "bluryarl@gmail.com"
+  },
   "files": [
     "!template/component/README.md",
     "!template/component/node_modules",
