@@ -1,9 +1,9 @@
 {
   "name": "@bluryar/template-vue-sfc-unbuild",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "files": [
-    "!template/**/node_modules",
     "!template/component/README.md",
+    "!template/component/node_modules",
     "!template/component/package.json",
     "!template/component/pnpm-workspace.yaml",
     "template"
