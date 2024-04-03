@@ -3,9 +3,9 @@
   "version": "0.1.4",
   "files": [
     "!template/**/node_modules",
-    "!template/*/README.md",
-    "!template/*/package.json",
-    "!template/*/pnpm-workspace.yaml",
+    "!template/component/README.md",
+    "!template/component/package.json",
+    "!template/component/pnpm-workspace.yaml",
     "template"
   ],
   "scripts": {
