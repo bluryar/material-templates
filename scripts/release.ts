@@ -1,9 +1,11 @@
 import { env, exit } from 'node:process'
 import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { existsSync } from 'node:fs'
 import { exec, execSync } from 'node:child_process'
 import dotenv from 'dotenv'
 import fg from 'fast-glob'
+import { getVersions } from 'ice-npm-utils'
 
 const PKG_GLOB = 'template-*'
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
@@ -15,7 +17,7 @@ async function main() {
   const { MATERIALS_NPM_REGISTRY = '' } = env
   if (!MATERIALS_NPM_REGISTRY) {
     console.error('❌ `MATERIALS_NPM_REGISTRY` is required, please check your .env file. Or you can use `.env.local` instead.')
-    exit(1)
+    return exit(1)
   }
 
   const pkgDirs = await fg(r(`../packages/${PKG_GLOB}`), { onlyDirectories: true })
@@ -23,8 +25,17 @@ async function main() {
 
   checkGitCommitted()
 
-  for (const dir of pkgDirs)
+  for (const dir of pkgDirs) {
+    const { name, version } = await getPkgJSON(dir)
+
+    const isExit = await checkVersionExit(name, version, MATERIALS_NPM_REGISTRY)
+    if (isExit) {
+      console.log(`❌ ${name}@${version} has been published, skip`)
+      continue
+    }
+
     await publish(dir, command)
+  }
 
   exit(0)
 }
@@ -48,6 +59,29 @@ async function publish(dir: string, command: string) {
   })
 
   console.log(`✅ ${dir} published`)
+}
+
+async function getPkgJSON(pkgDir: string) {
+  const pkgPath = r(`${pkgDir}/package.json`)
+
+  if (!existsSync(pkgPath)) {
+    console.error(`❌ ${pkgPath} not found`)
+    return exit(1)
+  }
+
+  const pkg = await import(pkgPath)
+  return pkg
+}
+
+async function checkVersionExit(name: string, version: string, registry?: string): Promise<boolean> {
+  try {
+    const versions = await getVersions(name, registry)
+    return versions.includes(version)
+  }
+  catch (err) {
+    console.error('checkVersionExit error', err)
+    return false
+  }
 }
 
 main()

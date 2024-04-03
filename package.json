@@ -25,6 +25,7 @@
     "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
     "fast-glob": "^3.3.2",
+    "ice-npm-utils": "^3.0.3",
     "lint-staged": "^15.2.2",
     "simple-git-hooks": "^2.11.1",
     "tsx": "^4.7.1",
